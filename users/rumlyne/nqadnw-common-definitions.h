@@ -188,16 +188,25 @@ enum custom_keycodes {
 
 
 // Strings
-#define ST_00   "00"
-#define ST_SUDO "sudo "
-#define ST_DFN  "#define "
-#define ST_INCL "#include "
-#define ST_APIS "apt-get install "
-#define ST_APUD "apt-get update "
-#define ST_APUG "apt-get upgrade "
-#define ST_PMNS "pacman -S "
-#define ST_PSYU "pacman -Syu "
-#define ST_PSYY "pacman -Syyuu "
+char ST_DNUL[2]  = "00"
+char ST_SUDO[5]  = "sudo "
+char ST_DFNE[8]  = "#define "
+char ST_INCL[9]  = "#include "
+
+char ST_APIS[16] = "apt-get install "
+char ST_APUD[15] = "apt-get update "
+char ST_APUG[16] = "apt-get upgrade "
+char ST_PMNS[10] = "pacman -S "
+char ST_PSYU[12] = "pacman -Syu "
+char ST_PSYY[14] = "pacman -Syyuu "
+
+char ST_SGDH[31] = "Sehr geehrte Damen und Herren, ";
+char ST_DSOM[19] = "Dear sir or madam, ";
+char ST_LKUK[32] = "Liebe Kolleginnen und Kollegen, ";
+char ST_DRCS[16] = "Dear collegues, ";
+char ST_MFGN[24] = "Mit freundlichen Grüßen ";
+char ST_HAVL[17] = "Hochachtungsvoll ";
+char ST_BTRS[14] = "Best regards, ";
 
 
 ################################################################################

@@ -18,7 +18,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch(keycode) {
             case KS_00:
-                SEND_STRING(ST_00);
+                SEND_STRING(ST_DNUL);
                 return false;
 
             #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
@@ -76,7 +76,7 @@ void TD_VOID_SUDO (qk_tap_dance_state_t *state, void *user_data) {
         SEND_STRING(ST_SUDO);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        SEND_STRING(ST_DFN);
+        SEND_STRING(ST_DFNE);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         SEND_STRING(ST_INCL);
@@ -160,6 +160,21 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 */
 };
 #endif
+
+/*
+
+// Add to end on stings:
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+    if (record->event.pressed) {
+        switch(id) {
+            return MACRO(D(LSFT), T(ENTER), U(LSFT), END);
+        }
+    }
+    return MACRO_NONE;
+};
+
+*/
 
 
 #endif // nqadnw-common-functions.h

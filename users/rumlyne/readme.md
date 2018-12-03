@@ -16,11 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 This is not quite the Aus Der Neo Welt (From The Neo World) layout (http://www.adnw.de/)
-but an ortho, thumb keys and programmer friendly adaptation based on the BuT variant I called
-Progammer BUX.
+but an ortho, thumb keys and hopefully programmer friendly adaptation based on the BuT variant I called
+Progammer BUX. It's goal is it to alleviate and support general office and programming workloads.
 
-Attention! This layout is NOT a result of the ADNW method although I plan to look into this in the future.
 
-The general idea is to make it as compatible as possible by providing
-translation layers for the multiple german & english layouts out there
-meaning that you won't have to change the layout settings in your OS.
+Attention! This layout is NOT a direct result of the ADNW method although I'm looking into it for a future revision.
