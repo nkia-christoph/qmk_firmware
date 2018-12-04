@@ -191,13 +191,13 @@ enum userspace_layers {
  *                 `--------------------'  `--------------------'
  */
 #define _LOWER_L1         DE_ACUT, DE_UNDS, TD_QUOT, DE_EXLM, DE_HASH
-#define _LOWER_L2         DE_LESS, DE_LCBR, DE_LBRC, DE_LPRN, DE_SLSH
+#define _LOWER_L2         TD_BR1 , TD_BR2 , TD_BR3 , TD_BR4 , DE_SLSH
 #define _LOWER_L3         DE_RING, TD_CUR , DE_PIPE, TD_TILD, DE_ASTR
 #define _LOWER_L4_L                         LEFT   , KC_BSPC, _______
 #define _LOWER_L4_R                         LEFT   , KC_BSPC, DE_SCLN
 
 #define _LOWER_R1         DE_MCRO, DE_AMPR, DE_MINS, DE_EQL , DE_GRV
-#define _LOWER_R2         DE_BSLS, DE_RPRN, DE_RBRC, DE_RCBR, DE_MORE
+#define _LOWER_R2         DE_BSLS, BR_ARRH, BR_ARRJ, BR_ARRK, BR_ARRL
 #define _LOWER_R3         TD_AT  , DE_PERC, DE_PLUS, TD_PARA, DE_RING
 #define _LOWER_R4_L       DE_COLN, ALT_ENT, RIGHT
 #define _LOWER_R4_R       DE_COLN, _______, RIGHT

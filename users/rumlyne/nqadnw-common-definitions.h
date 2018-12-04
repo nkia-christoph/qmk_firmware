@@ -94,7 +94,7 @@
 #define SH_OE LSFT(DE_OE)
 
 
-//Space saving
+//Saving space for human readability
 #define SYSREQ KC_SYSREQ
 #define RETURN KC_RETURN
 #define CANCEL KC_CANCEL
@@ -146,7 +146,17 @@
         PAR,
         SDO,
         APT,
-        PCM
+        PCM,
+        GUI,
+
+        BR1, //bracket 1,2,3,4
+        BR2,
+        BR3,
+        BR4,
+        ARH, //arrow H,J,K,L
+        ARJ,
+        ARK,
+        ARL
     };
     #define TD_QUOT TD(QOT)
     #define TD_CUR  TD(CUR)
@@ -157,6 +167,15 @@
     #define TD_APTG TD(APT)
     #define TD_PCMN TD(PCM)
     #define TD_GUI  TD(GUI)
+
+    #define TD_BR1  TD(BR1)
+    #define TD_BR2  TD(BR2)
+    #define TD_BR3  TD(BR3)
+    #define TD_BR4  TD(BR4)
+    #define BR_ARRH KC_LEFT
+    #define BR_ARRJ KC_DOWN
+    #define BR_ARRK KC_UP
+    #define BR_ARRL KC_RGHT
 #else
     #define TD_QUOT DE_QUOT
     #define TD_CUR  CUR_EUR
@@ -167,6 +186,15 @@
     #define TD_APTG KS_APIS
     #define TD_PCMN KS_PMNS
     #define TD_GUI  GUI_LCK
+
+    #define TD_BR1  DE_LPRN
+    #define TD_BR2  DE_LBRC
+    #define TD_BR3  DE_LCBR
+    #define TD_BR4  DE_LESS
+    #define BR_ARRH DE_RPRN
+    #define BR_ARRJ DE_RBRC
+    #define BR_ARRK DE_RCBR
+    #define BR_ARRL DE_MORE
 #endif // TAP_DANCE_ENABLE
 
 
@@ -189,6 +217,7 @@ enum custom_keycodes {
 
 // Strings
 char ST_DNUL[2]  = "00"
+
 char ST_SUDO[5]  = "sudo "
 char ST_DFNE[8]  = "#define "
 char ST_INCL[9]  = "#include "
@@ -200,6 +229,7 @@ char ST_PMNS[10] = "pacman -S "
 char ST_PSYU[12] = "pacman -Syu "
 char ST_PSYY[14] = "pacman -Syyuu "
 
+/* not yet assigned TODO
 char ST_SGDH[31] = "Sehr geehrte Damen und Herren, ";
 char ST_DSOM[19] = "Dear sir or madam, ";
 char ST_LKUK[32] = "Liebe Kolleginnen und Kollegen, ";
@@ -207,7 +237,7 @@ char ST_DRCS[16] = "Dear collegues, ";
 char ST_MFGN[24] = "Mit freundlichen Grüßen ";
 char ST_HAVL[17] = "Hochachtungsvoll ";
 char ST_BTRS[14] = "Best regards, ";
-
+*/
 
 ################################################################################
 ################################################################################
