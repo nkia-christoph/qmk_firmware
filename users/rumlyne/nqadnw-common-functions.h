@@ -12,8 +12,8 @@
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-/*
-    // if 2 layers active then activate another layer instead // TODO doesn't work with my configuration atm
+/* // if 2 layers active then activate another layer instead // TODO doesn't work with my configuration atm
+
     switch (keycode) {
         case LOWER:
             if (record->event.pressed) {
@@ -51,44 +51,60 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(ST_DNUL);
                 return false;
 
+/* //disabled because not yet mapped to any keymap
+            case KS_SGDH:
+                SEND_STRING(ST_SGDH);
+                return false;
+            case KS_DSOM:
+                SEND_STRING(ST_DSOM);
+                return false;
+            case KS_LKUK:
+                SEND_STRING(ST_LKUK);
+                return false;
+            case KS_DRCS:
+                SEND_STRING(ST_DRCS);
+                return false;
+            case KS_MFGN:
+                SEND_STRING(ST_MFGN);
+                return false;
+            case KS_HAVL:
+                SEND_STRING(ST_HAVL);
+                return false;
+            case KS_BTRS:
+                SEND_STRING(ST_BTRS);
+                return false;
+*/
+
             #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
                 case KS_SUDO:
                     SEND_STRING(ST_SUDO);
                     return false;
-
     /*
                 case KS_DFN:
                     SEND_STRING(ST_DFN);
                     return false;
-
                 case KS_INCL:
                     SEND_STRING(ST_INCL);
                     return false;
     */
-
                 case KS_APIS:
                     SEND_STRING(ST_APIS);
                     return false;
-
     /*
                 case KS_APUD:
                     SEND_STRING(ST_APUD);
                     return false;
-
                 case KS_APUG:
                     SEND_STRING(ST_APUG);
                     return false;
     */
-
                 case KS_PMNS:
                     SEND_STRING(ST_PMNS);
                     return false;
-
     /*
                 case KS_PSYU:
                     SEND_STRING(ST_PSYU);
                     return false;
-
                 case KS_PSYY:
                     SEND_STRING(ST_PSYY);
                     return false;
@@ -169,7 +185,8 @@ void TD_VOID_GUI (qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-// Tap dance definitions HAS TO BE AT THE END
+
+// Tap dance definitions HAS TO BE AT THE END according to the docs
 #ifdef TAP_DANCE_ENABLE
 qk_tap_dance_action_t tap_dance_actions[] = {
   [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT),
@@ -178,10 +195,16 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ),
   [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ),
 
+  [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN),
+  [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC),
+  [BR3] = ACTION_TAP_DANCE_DOUBLE(DE_LCBR, DE_RCBR),
+  [BR4] = ACTION_TAP_DANCE_DOUBLE(DE_LESS, DE_MORE),
+
   [SDO] = ACTION_TAP_DANCE_FN(TD_VOID_SUDO   ),
   [APT] = ACTION_TAP_DANCE_FN(TD_VOID_APT_GET),
   [PCM] = ACTION_TAP_DANCE_FN(TD_VOID_PACMAN ),
   [GUI] = ACTION_TAP_DANCE_FN(TD_VOID_GUI    )
+
 /*
   [SDO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_SUDO,    NULL),
   [APT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_APT_GET, NULL),
@@ -193,7 +216,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 /*
 
-// Add to end on stings:
+// Add to end on strings:
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
     if (record->event.pressed) {

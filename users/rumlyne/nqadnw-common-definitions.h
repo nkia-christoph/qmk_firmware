@@ -108,27 +108,27 @@
 
 // Define non-capitalized UTF shortcuts here
 #ifdef UNICODE_ENABLE
-// #define PHY_HBR UC(0x0127)
-// #define PHY_DEG UC(0x00b0)
-// #define CUR_LIR UC(0x20ba)
-#define CUR_BIT UC(0x20bf) // ₿ Bitcoin
-#define CUR_EUR KC_RALT(KC_E) // UC(0x20ac) // €
-#define CUR_BPN UC(0x00a3) // £
-#define CUR_YEN UC(0x00a5) // ¥
-#define UC_TM   UC(0x2122) // ™
-#define UC_RTM  UC(0x00b0) // ®
-#define UC_CPR  UC(0x00ae) // ©
+    // #define PHY_HBR UC(0x0127)
+    // #define PHY_DEG UC(0x00b0)
+    // #define CUR_LIR UC(0x20ba)
+    #define CUR_BIT UC(0x20bf) // ₿ Bitcoin
+    #define CUR_EUR KC_RALT(KC_E) // UC(0x20ac) // €
+    #define CUR_BPN UC(0x00a3) // £
+    #define CUR_YEN UC(0x00a5) // ¥
+    #define UC_TM   UC(0x2122) // ™
+    #define UC_RTM  UC(0x00b0) // ®
+    #define UC_CPR  UC(0x00ae) // ©
 #else
-// #define PHY_HBR KC_NO
-// #define PHY_DEG KC_NO
-// #define CUR_LIR KC_NO
-#define CUR_BIT KC_NO
-#define CUR_EUR KC_RALT(KC_E)
-#define CUR_BPN KC_NO
-#define CUR_YEN KC_NO
-#define UC_TM   KC_NO // TODO ab hier
-#define UC_RTM  KC_NO
-#define UC_CPR  KC_NO
+    // #define PHY_HBR KC_NO
+    // #define PHY_DEG KC_NO
+    // #define CUR_LIR KC_NO
+    #define CUR_BIT KC_NO
+    #define CUR_EUR KC_RALT(KC_E)
+    #define CUR_BPN KC_NO
+    #define CUR_YEN KC_NO
+    #define UC_TM   KC_NO // TODO ab hier
+    #define UC_RTM  KC_NO
+    #define UC_CPR  KC_NO
 #endif
 
 
@@ -138,7 +138,7 @@
 
 // Tap dance declarations
 #ifdef TAP_DANCE_ENABLE
-    enum {
+    enum tap_waltz {
         QOT = 0,
         CUR,
         TLD,
@@ -177,6 +177,17 @@
     #define BR_ARRK KC_UP
     #define BR_ARRL KC_RGHT
 #else
+    enum custom_keycodes {
+        KS_SUDO, // sudo
+        // KS_DFN, // #define
+        // KS_INCL, // #include
+        KS_APIS, // apt-get install
+        // KS_APUD, // apt-get update
+        // KS_APUG, // apt-get upgrade
+        KS_PMNS, // pacman -S
+        // KS_PSYU, // pacman -Syu
+        // KS_PSYY // pacman -Syyuu
+    }
     #define TD_QUOT DE_QUOT
     #define TD_CUR  CUR_EUR
     #define TD_TILD DE_TILD
@@ -200,36 +211,34 @@
 
 // String keycodes & dynaminc macro dependancy
 enum custom_keycodes {
-  KS_00 = SAFE_RANGE,
-  KS_SUDO, // sudo
-  // KS_DFN, // #define
-  // KS_INCL, // #include
-  KS_APIS, // apt-get install
-  // KS_APUD, // apt-get update
-  // KS_APUG, // apt-get upgrade
-  KS_PMNS, // pacman -S
-  // KS_PSYU, // pacman -Syu
-  // KS_PSYY // pacman -Syyuu
+    DYNAMIC_MACRO_RANGE = SAFE_RANGE, // necessary for dynamic macros according to QMK guide
 
-  DYNAMIC_MACRO_RANGE // necessary for dynamic macros according to QMK guide
+    KS_00,
+
+    KS_SGDH,
+    KS_DSOM,
+    KS_LKUK,
+    KS_DRCS,
+    KS_MFGN,
+    KS_HAVL,
+    KS_BTRS
 };
 
 
 // Strings
-char ST_DNUL[2]  = "00"
+char ST_DNUL[2]  = "00";
 
-char ST_SUDO[5]  = "sudo "
-char ST_DFNE[8]  = "#define "
-char ST_INCL[9]  = "#include "
+char ST_SUDO[5]  = "sudo ";
+char ST_DFNE[8]  = "#define ";
+char ST_INCL[9]  = "#include ";
 
-char ST_APIS[16] = "apt-get install "
-char ST_APUD[15] = "apt-get update "
-char ST_APUG[16] = "apt-get upgrade "
-char ST_PMNS[10] = "pacman -S "
-char ST_PSYU[12] = "pacman -Syu "
-char ST_PSYY[14] = "pacman -Syyuu "
+char ST_APIS[16] = "apt-get install ";
+char ST_APUD[15] = "apt-get update ";
+char ST_APUG[16] = "apt-get upgrade ";
+char ST_PMNS[10] = "pacman -S ";
+char ST_PSYU[12] = "pacman -Syu ";
+char ST_PSYY[14] = "pacman -Syyuu ";
 
-/* not yet assigned TODO
 char ST_SGDH[31] = "Sehr geehrte Damen und Herren, ";
 char ST_DSOM[19] = "Dear sir or madam, ";
 char ST_LKUK[32] = "Liebe Kolleginnen und Kollegen, ";
@@ -237,7 +246,7 @@ char ST_DRCS[16] = "Dear collegues, ";
 char ST_MFGN[24] = "Mit freundlichen Grüßen ";
 char ST_HAVL[17] = "Hochachtungsvoll ";
 char ST_BTRS[14] = "Best regards, ";
-*/
+
 
 ################################################################################
 ################################################################################
