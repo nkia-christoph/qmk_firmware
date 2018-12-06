@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   `-------------------------------------------------------------------------------------------------'
  */
 [_BASE] = /*LAYOUT_ortho_5x14( */{
-{ KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_DEL  },
+{ KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , TD_F10 , KC_F11 , KC_F12 , KC_DEL  },
 { KC_TAB ,                       _BASE_L1             , KC_HOME, KC_PGUP,           _BASE_R1                         , KC_BSPC },
 { KC_LCTL,                       _BASE_L2             , KC_ENT , KC_LALT,           _BASE_R1                         , KC_ENT  },
 { KC_LSFT,                       _BASE_L3             , KC_END , KC_PGDN,           _BASE_R1                         , KC_RSFT },
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   `-------------------------------------------------------------------------------------------------'
  */
 [_CODE] = {
-{ KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_DEL  },
+{ KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , TD_F10 , KC_F11 , KC_F12 , KC_DEL  },
 { KC_TAB ,                       _CODE_L1             , KC_HOME, KC_PGUP,               _BASE_R1                     , KC_BSPC },
 { KC_LCTL,                       _BASE_L2             , KC_ENT , KC_LALT,               _BASE_R2                     , KC_ENT  },
 { KC_LSFT,                       _CODE_L3             , KC_END , KC_PGDN,               _BASE_R3                     , KC_RSFT },
