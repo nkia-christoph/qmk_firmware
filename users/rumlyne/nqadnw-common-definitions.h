@@ -149,6 +149,10 @@
         PCM,
         GUI,
 
+        GTN,
+        GTW,
+        BYE,
+
         BR1, //bracket 1,2,3,4
         BR2,
         BR3,
@@ -167,6 +171,10 @@
     #define TD_APTG TD(APT)
     #define TD_PCMN TD(PCM)
     #define TD_GUI  TD(GUI)
+
+    #define TD_F3   TD(GTN)
+    #define TD_F2   TD(GTW)
+    #define TD_F10  TD(BYE)
 
     #define TD_BR1  TD(BR1)
     #define TD_BR2  TD(BR2)
@@ -198,6 +206,10 @@
     #define TD_PCMN KS_PMNS
     #define TD_GUI  GUI_LCK
 
+    #define TD_F3   KC_F3
+    #define TD_F2   KC_F2
+    #define TD_F10  KC_F10
+
     #define TD_BR1  DE_LPRN
     #define TD_BR2  DE_LBRC
     #define TD_BR3  DE_LCBR
@@ -223,6 +235,10 @@ enum custom_keycodes {
     KS_HAVL,
     KS_BTRS
 };
+
+
+################################################################################
+################################################################################
 
 
 // Strings

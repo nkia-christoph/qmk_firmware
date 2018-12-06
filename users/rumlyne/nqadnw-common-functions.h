@@ -48,65 +48,65 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch(keycode) {
             case KS_00:
-                SEND_STRING(ST_DNUL);
+                send_string(ST_DNUL);
                 return false;
 
-/* //disabled because not yet mapped to any keymap
+/* //disabled because not directly mapped to any keymap
             case KS_SGDH:
-                SEND_STRING(ST_SGDH);
+                send_string(ST_SGDH);
                 return false;
             case KS_DSOM:
-                SEND_STRING(ST_DSOM);
+                send_string(ST_DSOM);
                 return false;
             case KS_LKUK:
-                SEND_STRING(ST_LKUK);
+                send_string(ST_LKUK);
                 return false;
             case KS_DRCS:
-                SEND_STRING(ST_DRCS);
+                send_string(ST_DRCS);
                 return false;
             case KS_MFGN:
-                SEND_STRING(ST_MFGN);
+                send_string(ST_MFGN);
                 return false;
             case KS_HAVL:
-                SEND_STRING(ST_HAVL);
+                send_string(ST_HAVL);
                 return false;
             case KS_BTRS:
-                SEND_STRING(ST_BTRS);
+                send_string(ST_BTRS);
                 return false;
 */
 
             #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
                 case KS_SUDO:
-                    SEND_STRING(ST_SUDO);
+                    send_string(ST_SUDO);
                     return false;
     /*
                 case KS_DFN:
-                    SEND_STRING(ST_DFN);
+                    send_string(ST_DFN);
                     return false;
                 case KS_INCL:
-                    SEND_STRING(ST_INCL);
+                    send_string(ST_INCL);
                     return false;
     */
                 case KS_APIS:
-                    SEND_STRING(ST_APIS);
+                    send_string(ST_APIS);
                     return false;
     /*
                 case KS_APUD:
-                    SEND_STRING(ST_APUD);
+                    send_string(ST_APUD);
                     return false;
                 case KS_APUG:
-                    SEND_STRING(ST_APUG);
+                    send_string(ST_APUG);
                     return false;
     */
                 case KS_PMNS:
-                    SEND_STRING(ST_PMNS);
+                    send_string(ST_PMNS);
                     return false;
     /*
                 case KS_PSYU:
-                    SEND_STRING(ST_PSYU);
+                    send_string(ST_PSYU);
                     return false;
                 case KS_PSYY:
-                    SEND_STRING(ST_PSYY);
+                    send_string(ST_PSYY);
                     return false;
     */
             #endif
@@ -117,15 +117,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 // Tap dance events
-void TD_VOID_SUDO (qk_tap_dance_state_t *state, void *user_data) {
+void TD_VOID_SUDO_DFNE_INCL (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        SEND_STRING(ST_SUDO);
+        send_string(ST_SUDO);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        SEND_STRING(ST_DFNE);
+        send_string(ST_DFNE);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
-        SEND_STRING(ST_INCL);
+        send_string(ST_INCL);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
         break; // reset_tap_dance (state); // TODO CHECK
@@ -134,13 +134,13 @@ void TD_VOID_SUDO (qk_tap_dance_state_t *state, void *user_data) {
 
 void TD_VOID_APT_GET (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        SEND_STRING(ST_APIS);
+        send_string(ST_APIS);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        SEND_STRING(ST_APUD);
+        send_string(ST_APUD);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
-        SEND_STRING(ST_APUG);
+        send_string(ST_APUG);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
         break; // reset_tap_dance (state); // TODO CHECK
@@ -149,20 +149,97 @@ void TD_VOID_APT_GET (qk_tap_dance_state_t *state, void *user_data) {
 
 void TD_VOID_PACMAN (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        SEND_STRING(ST_PMNS);
+        send_string(ST_PMNS);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        SEND_STRING(ST_PSYU);
+        send_string(ST_PSYU);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
-        SEND_STRING(ST_PSYY);
+        send_string(ST_PSYY);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
 
-void TD_VOID_GUI (qk_tap_dance_state_t *state, void *user_data) {
+void TD_VOID_GREET_NICE (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code(KC_F3);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(ST_SGDH);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 3) {
+        send_string(ST_DSOM);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 4) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_GREET_WORK (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code(KC_F2);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(ST_LKUK);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 3) {
+        send_string(ST_DRCS);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 4) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_BYE (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code(KC_F10);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(ST_MFGN);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 3) {
+        send_string(ST_BTRS);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 4) {
+        send_string(ST_HAVL);
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_UP(X_LSHIFT));
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 5) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_GLCK_CD_STNDRD (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code (LGUI(KC_L));
         break; // reset_tap_dance (state); // TODO CHECK
@@ -189,45 +266,32 @@ void TD_VOID_GUI (qk_tap_dance_state_t *state, void *user_data) {
 // Tap dance definitions HAS TO BE AT THE END according to the docs
 #ifdef TAP_DANCE_ENABLE
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT),
-  [CUR] = ACTION_TAP_DANCE_DOUBLE(CUR_EUR, DE_DLR ),
-  [TLD] = ACTION_TAP_DANCE_DOUBLE(DE_TILD, UC_TM  ),
-  [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ),
-  [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ),
+    [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT),
+    [CUR] = ACTION_TAP_DANCE_DOUBLE(CUR_EUR, DE_DLR ),
+    [TLD] = ACTION_TAP_DANCE_DOUBLE(DE_TILD, UC_TM  ),
+    [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ),
+    [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ),
 
-  [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN),
-  [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC),
-  [BR3] = ACTION_TAP_DANCE_DOUBLE(DE_LCBR, DE_RCBR),
-  [BR4] = ACTION_TAP_DANCE_DOUBLE(DE_LESS, DE_MORE),
+    [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN),
+    [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC),
+    [BR3] = ACTION_TAP_DANCE_DOUBLE(DE_LCBR, DE_RCBR),
+    [BR4] = ACTION_TAP_DANCE_DOUBLE(DE_LESS, DE_MORE),
 
-  [SDO] = ACTION_TAP_DANCE_FN(TD_VOID_SUDO   ),
-  [APT] = ACTION_TAP_DANCE_FN(TD_VOID_APT_GET),
-  [PCM] = ACTION_TAP_DANCE_FN(TD_VOID_PACMAN ),
-  [GUI] = ACTION_TAP_DANCE_FN(TD_VOID_GUI    )
-
+    [SDO] = ACTION_TAP_DANCE_FN(TD_VOID_SUDO_DFNE_INCL),
+    [APT] = ACTION_TAP_DANCE_FN(TD_VOID_APT_GET       ),
+    [PCM] = ACTION_TAP_DANCE_FN(TD_VOID_PACMAN        ),
+    [GUI] = ACTION_TAP_DANCE_FN(TD_VOID_GLCK_CD_STNDRD),
 /*
-  [SDO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_SUDO,    NULL),
-  [APT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_APT_GET, NULL),
-  [PCM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_PACMAN,  NULL),
-  [GUI] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_GUI,     NULL)
+    [SDO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_SUDO,    NULL),
+    [APT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_APT_GET, NULL),
+    [PCM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_PACMAN,  NULL),
+    [GUI] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_GUI,     NULL)
 */
+    [GTN] = ACTION_TAP_DANCE_FN(TD_VOID_GREET_NICE),
+    [GTW] = ACTION_TAP_DANCE_FN(TD_VOID_GREET_WORK),
+    [BYE] = ACTION_TAP_DANCE_FN(TD_VOID_BYE       )
 };
-#endif
-
-/*
-
-// Add to end on strings:
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-    if (record->event.pressed) {
-        switch(id) {
-            return MACRO(D(LSFT), T(ENTER), U(LSFT), END);
-        }
-    }
-    return MACRO_NONE;
-};
-
-*/
+#endif // TAP_DANCE_ENABLE
 
 
 #endif // nqadnw-common-functions.h

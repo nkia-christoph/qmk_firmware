@@ -6,7 +6,14 @@
 
 //#define NO_ACTION_FUNCTION
 //#define NO_ACTION_MACRO
+
+#ifndef NO_DEBUG
+#define NO_DEBUG
+#endif // !NO_DEBUG
+#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
 #define NO_PRINT
+#endif // !NO_PRINT
+
 #define PERMISSIVE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM 160  // how long before a tap becomes a hold // default = 200
