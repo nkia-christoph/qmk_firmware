@@ -1,10 +1,9 @@
 #include "idobo.h"
-#include "qmk_keyboard.h"
+#include QMK_KEYBOARD_H
 
-#ifndef KEYMAP_NQADNW
-#define KEYMAP_NQADNW
+#ifndef KEYMAP_NQADNW // TODO CHECK
+#define KEYMAP_NQADNW // TODO CHECK
 
-#include "keymap.h"
 #include "keymap_german.h"
 #include "nqadnw-basic-layout.h"
 #include "nqadnw-common.h"
@@ -39,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL| LALT | PRINT|                    | .    | 0    | ,    |                    | PAUS | RGUI | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_BASE] = LAYOUT_ortho_5x15 (
-    KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , TD_GUI , KC_F7  , KC_F8  , KC_F9  , TD_F10 , KC_F11 , KC_F12 , KC_DEL  , \
+[_BASE] = LAYOUT_ortho_5x15_wrapper (
+    KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , TD_GUI , KC_F7  , KC_F8  , KC_F9  , TD_F10 , TD_F11 , KC_F12 , KC_DEL  , \
     KC_TAB ,                       _BASE_L1             , KC_7   , KC_8   , KC_9   ,           _BASE_R1                         , KC_BSPC , \
     KC_LCTL,                       _BASE_L2             , KC_4   , KC_5   , KC_6   ,           _BASE_R1                         , KC_ENT  , \
     KC_LSFT,                       _BASE_L3             , KC_1   , KC_2   , KC_3   ,           _BASE_R1                         , KC_RSFT , \
@@ -63,8 +62,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL| LALT | PRINT|                    | .    | 0    | ,    |                    | PAUS | RGUI | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_CODE] = LAYOUT_ortho_5x15 (
-    KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , TD_GUI , KC_F7  , KC_F8  , KC_F9  , TD_F10 , KC_F11 , KC_F12 , KC_DEL  , \
+[_CODE] = LAYOUT_ortho_5x15_wrapper (
+    KC_ESC , KC_F1  , TD_F2  , TD_F3  , KC_F4  , KC_F5  , KC_F6  , TD_GUI , KC_F7  , KC_F8  , KC_F9  , TD_F10 , TD_F11 , KC_F12 , KC_DEL  , \
     KC_TAB ,                       _CODE_L1             , KC_7   , KC_8   , KC_9   ,               _BASE_R1                     , KC_BSPC , \
     KC_LCTL,                       _BASE_L2             , KC_4   , KC_5   , KC_6   ,               _BASE_R2                     , KC_ENT  , \
     KC_LSFT,                       _CODE_L3             , KC_1   , KC_2   , KC_3   ,               _BASE_R3                     , KC_RSFT , \
@@ -86,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL| LALT | LGUI |                    | .    | 0    | ,    |                    | RALT | RGUI | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_STNDRD] = LAYOUT_ortho_5x15 (
+[_STNDRD] = LAYOUT_ortho_5x15_wrapper (
     KC_GESC, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , TD_GUI , KC_7   , KC_8   , KC_9   , KC_0   , DE_SS  , DE_ACUT, KC_BSPC , \
     KC_TAB ,                         _STNDRD_L1         , KC_7   , KC_8   , KC_9   ,         _STNDRD_R1                                   , \
     KC_LCTL,                         _STNDRD_L2         , KC_4   , KC_5   , KC_6   ,         _STNDRD_R2                                   , \
@@ -113,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL| ALGR | SREQ |                    | .    | 0    | ,    |                    | BREAK| LGUI | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_RAISE_L] = LAYOUT_ortho_5x15 (
+[_RAISE_L] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC , KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , TD_GUI , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL  , \
     SH_TAB ,                       _RAISE_L1            , RA_7   , RA_8   , RA_9   ,        _RAISE_R1                           , KC_DEL  , \
     KC_LCTL,                       _RAISE_L2            , RA_4   , RA_5   , RA_6   ,        _RAISE_R2                           , SH_ENT  , \
@@ -125,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _RAISE_L_C triggered via left hand side modifier when on code layer
  */
-[_RAISE_L_C] = LAYOUT_ortho_5x15 (
+[_RAISE_L_C] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC , KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , TD_GUI , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL  , \
     KC_LCTL,                       _RAISE_L2            , RA_4   , RA_5   , RA_6   ,        _RAISE_R2                           , SH_ENT  , \
     KC_LSFT,                       _RAISE_C_L3          , RA_1   , RA_2   , RA_3   ,        _RAISE_R3                           , KC_RSFT , \
@@ -137,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _RAISE_R
  */
-[_RAISE_R] = LAYOUT_ortho_5x15 (
+[_RAISE_R] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC , KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , TD_GUI , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL  , \
     SH_TAB ,                       _RAISE_C_L1          , RA_7   , RA_8   , RA_9   ,        _RAISE_R1                           , KC_DEL  , \
     KC_LCTL,                       _RAISE_L2            , RA_4   , RA_5   , RA_6   ,        _RAISE_R2                           , SH_ENT  , \
@@ -149,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _RAISE_R_C
  */
-[_RAISE_R_C] = LAYOUT_ortho_5x15 (
+[_RAISE_R_C] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC , KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , TD_GUI , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL  , \
     KC_LCTL,                       _RAISE_L2            , RA_4   , RA_5   , RA_6   ,        _RAISE_R2                           , SH_ENT  , \
     SH_TAB ,                       _RAISE_C_L1          , RA_7   , RA_8   , RA_9   ,        _RAISE_R1                           , KC_DEL  , \
@@ -175,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL| LALT | SCROL|                    | .    | 0    | ,    |                    | APP  | RGUI | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_LOWER_L] = LAYOUT_ortho_5x15 (
+[_LOWER_L] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC ,                       _LOWER_L1            , RA_7   , RA_8   , RA_9   ,        _LOWER_R1                           , KC_DEL  , \
     CANCEL , KC_UNDO, KC_PSCR, SYSREQ, KC_SLCK , KC_REDO, XXXXXXX, TD_GUI , XXXXXXX, RETURN , KC_INS , KC_BRK , KC_PAUS, KC_CLA , KC_CLR  , \
     KC_LCTL,                       _LOWER_L2            , RA_4   , RA_5   , RA_6   ,        _LOWER_R2                           , SH_ENT  , \
@@ -187,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _LOWER_L_C
  */
-[_LOWER_L_C] = LAYOUT_ortho_5x15 (
+[_LOWER_L_C] = LAYOUT_ortho_5x15_wrapper (
     CANCEL , KC_UNDO, KC_PSCR, SYSREQ, KC_SLCK , KC_REDO, XXXXXXX, TD_GUI , XXXXXXX, RETURN , KC_INS , KC_BRK , KC_PAUS, KC_CLA , KC_CLR  , \
     KC_ESC ,                       _LOWER_C_L1          , RA_7   , RA_8   , RA_9   ,        _LOWER_R1                           , KC_DEL  , \
     KC_LCTL,                       _LOWER_L2            , RA_4   , RA_5   , RA_6   ,        _LOWER_R2                           , SH_ENT  , \
@@ -199,7 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _LOWER_R
  */
-[_LOWER_R] = LAYOUT_ortho_5x15 (
+[_LOWER_R] = LAYOUT_ortho_5x15_wrapper (
     CANCEL , KC_UNDO, KC_PSCR, SYSREQ, KC_SLCK , KC_REDO, XXXXXXX, TD_GUI , XXXXXXX, RETURN , KC_INS , KC_BRK , KC_PAUS, KC_CLA , KC_CLR  , \
     KC_ESC ,                       _LOWER_L1            , RA_7   , RA_8   , RA_9   ,        _LOWER_R1                           , KC_DEL  , \
     KC_LCTL,                       _LOWER_L2            , RA_4   , RA_5   , RA_6   ,        _LOWER_R2                           , SH_ENT  , \
@@ -211,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _LOWER_R_C
  */
-[_LOWER_R_C] = LAYOUT_ortho_5x15 (
+[_LOWER_R_C] = LAYOUT_ortho_5x15_wrapper (
     CANCEL , KC_UNDO, KC_PSCR, SYSREQ, KC_SLCK , KC_REDO, XXXXXXX, TD_GUI , XXXXXXX, RETURN , KC_INS , KC_BRK , KC_PAUS, KC_CLA , KC_CLR  , \
     KC_ESC ,                       _LOWER_C_L1          , RA_7   , RA_8   , RA_9   ,        _LOWER_R1                           , KC_DEL  , \
     KC_LCTL,                       _LOWER_L2            , RA_4   , RA_5   , RA_6   ,        _LOWER_R2                           , SH_ENT  , \
@@ -238,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 | LCTRL|      |      |                    | .    | 0    | ,    |                    |      |      | RCTRL|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_LEFT] = LAYOUT_ortho_5x15 (
+[_LEFT] = LAYOUT_ortho_5x15_wrapper (
     C_A_DEL, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, DEBUG  , XXXXXXX, TD_GUI , XXXXXXX, RGB_TOG, RGB_VAD, RGB_VAI, BL_TOGG, BL_DEC , BL_INC  , \
     KC_TAB ,                       _LEFT_L1             , KC_7   , KC_8   , KC_9   ,           _LEFT_R1                         , KC_BSPC , \
     KC_LCTL,                       _LEFT_L2             , KC_4   , KC_5   , KC_6   ,           _LEFT_R1                         , KC_ENT  , \
@@ -250,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  _LEFT_C
  */
-[_LEFT_C] = LAYOUT_ortho_5x15 (
+[_LEFT_C] = LAYOUT_ortho_5x15_wrapper (
     C_A_DEL, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, DEBUG  , XXXXXXX, TD_GUI , XXXXXXX, RGB_TOG, RGB_VAD, RGB_VAI, BL_TOGG, BL_DEC , BL_INC  , \
     KC_TAB ,                       _LEFT_L1             , KC_7   , KC_8   , KC_9   ,           _LEFT_R1                         , KC_BSPC , \
     KC_LCTL,                       _LEFT_L2             , KC_4   , KC_5   , KC_6   ,           _LEFT_C_R1                       , KC_ENT  , \
@@ -277,7 +276,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 |______| SSPC | .    |                    | .    | 00   | ;    |                    |      |      |______|
  *   `--------------------------------------------------------------------------------------------------------'
  */
-[_RIGHT] = LAYOUT_ortho_5x15 (
+[_RIGHT] = LAYOUT_ortho_5x15_wrapper (
     KC_ESC , KC_MYCM, KC_PEQL, KC_PSLS, KC_PAST, KC_PMNS, XXXXXXX, TD_GUI , XXXXXXX, RESET  , KC_MUTE, KC_VOLD, KC_VOLU, KC_PWR , ALT_F4  , \
     KC_TAB ,                       _RIGHT_L1            , DE_DLR , CUR_BPN, CUR_EUR,           _RIGHT_R1                        , KC_BSPC , \
     KC_LCTL,                       _RIGHT_L2            , KC_D   , KC_E   , KC_F   ,           _RIGHT_R2                        , KC_ENT  , \
@@ -303,7 +302,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * 4 |      |      |      |                    |      |      |      |                    |      |      |______|
  *   `--------------------------------------------------------------------------------------------------------'
  *
- * [_LAYER] = LAYOUT_ortho_5x15 (
+ * [_LAYER] = LAYOUT_ortho_5x15_wrapper (
  *   C_A_DEL, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, DEBUG  , XXXXXXX, TD_GUI , XXXXXXX, RGB_TOG, RGB_VAD, RGB_VAI, BL_TOGG, BL_DEC , BL_INC  , \
  *   KC_TAB ,                       _LEFT_L1             , KC_7   , KC_8   , KC_9   ,           _LEFT_R1                         , KC_BSPC , \
  *   KC_LCTL,                       _LEFT_L2             , KC_4   , KC_5   , KC_6   ,           _LEFT_R1                         , KC_ENT  , \
