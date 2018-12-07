@@ -8,37 +8,54 @@
 #include <sendstring_german.h>
 #include "nqadnw-common-definitions.h"
 #include "nqadnw-common-functions.h"
-
+#include QMK_KEYBOARD_H
 
 #ifndef NQADNW_BASIC_LAYOUT_H
 #define NQADNW_BASIC_LAYOUT_H
 
-/*
- * This is not quite the the Aus Der Neo Welt (BuT) layout (http://www.adnw.de/) but an
- * ortho, thumb keys and programmer friendly adaptation by me called Progammer BUX
- *
- * It consists of a block of 5x3 or 5x4, for each hand. This allows us
- * to use these blocks for a variety of keyboards like the planck, preonic, XD75 and
- * even splits like the ergodox - and all the cloes of course.
- *
- * The naming convention for these blocks is
- *   L<LAYER>(_<ALTERNATE>)_<SIDE><ROW>(_<ALTERNATE>)
- *
- *   The LAYER is a number starting at
- *   00 for the base layer.
- *   3 & 4 are mostly shift,
- *   5 & 6 is for special chars etc.
- *
- *   SIDE is, well either the left or right side/half of a keyboard.
- *
- *   The ROW is starting from the top, numbering beginning at 1, or 0.
- */
+/**
+  * This is not quite the the Aus Der Neo Welt (BuT) layout (http://www.adnw.de/) but an
+  * ortho, thumb keys and programmer friendly adaptation by me called Progammer BUX
+  *
+  * It consists of a block of 5x3 or 5x4, for each hand. This allows us
+  * to use these blocks for a variety of keyboards like the planck, preonic, XD75 and
+  * even splits like the ergodox - and all the cloes of course.
+  *
+  * The naming convention for these blocks is
+  *   L<LAYER>(_<ALTERNATE>)_<SIDE><ROW>(_<ALTERNATE>)
+  *
+  *   The LAYER is a number starting at
+  *   00 for the base layer.
+  *   3 & 4 are mostly shift,
+  *   5 & 6 is for special chars etc.
+  *
+  *   SIDE is, well either the left or right side/half of a keyboard.
+  *
+  *   The ROW is starting from the top, numbering beginning at 1, or 0.
+  */
+
+
+/**
+  * Since our quirky block definitions are basically a list of comma separated
+  * arguments, we need a wrapper in order for these definitions to be
+  * expanded before being used as arguments to the LAYOUT_xxx macro.
+  */
+
+#if (!defined(LAYOUT) && defined(KEYMAP))
+#define LAYOUT KEYMAP
+#endif
+
+#define KEYMAP_wrapper(...) LAYOUT(__VA_ARGS__)
+#define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
+#define LAYOUT_ortho_5x14_wrapper(...) LAYOUT_ortho_5x14(__VA_ARGS__)
+#define LAYOUT_ortho_5x15_wrapper(...) LAYOUT_ortho_5x15(__VA_ARGS__)
 
 
 enum userspace_layers {
   _BASE = 00,	// Programmer BUX // default
   _CODE,      // 01	// Code friendly layer
   _STNDRD,    // 02  // QWERTZ, QWERTY, AZERTY, etc.
+  // _JPNS,      // 03 // Japanese Kana layout based on esrilles new stickney layout // TODO
 
   _RAISE_L,   // _RAISE when accessed via left MOD // BuT based symbol layer
   _RAISE_L_C, // _RAISE when accessed via left MOD on _CODE layer

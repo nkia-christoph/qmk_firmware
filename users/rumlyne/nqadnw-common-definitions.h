@@ -43,7 +43,6 @@
 #define SH_TAB		LS‎FT(KC_TAB)
 #define SH_ENT		LS‎FT(KC_ENT)
 #define SH_BSPC		LS‎FT(KC_BSPC)
-#define SP_TAB    F(M_SPC_TAB) // TODO Macro
 #define ALT_ENT   LALT(KC_ENT)
 
 #define CTL_X     LCTL(KC_X)
@@ -132,10 +131,6 @@
 #endif
 
 
-################################################################################
-################################################################################
-
-
 // Tap dance declarations
 #ifdef TAP_DANCE_ENABLE
     enum tap_waltz {
@@ -151,6 +146,7 @@
 
         GTN,
         GTW,
+        EML,
         BYE,
 
         BR1, //bracket 1,2,3,4
@@ -174,6 +170,7 @@
 
     #define TD_F3   TD(GTN)
     #define TD_F2   TD(GTW)
+    #define TD_F11  TD(EML)
     #define TD_F10  TD(BYE)
 
     #define TD_BR1  TD(BR1)
@@ -186,7 +183,7 @@
     #define BR_ARRL KC_RGHT
 #else
     enum custom_keycodes {
-        KS_SUDO, // sudo
+        KS_SUDO = SAFE_RANGE, // sudo
         // KS_DFN, // #define
         // KS_INCL, // #include
         KS_APIS, // apt-get install
@@ -208,6 +205,7 @@
 
     #define TD_F3   KC_F3
     #define TD_F2   KC_F2
+    #define TD_F11  KC_F11
     #define TD_F10  KC_F10
 
     #define TD_BR1  DE_LPRN
@@ -237,10 +235,6 @@ enum custom_keycodes {
 };
 
 
-################################################################################
-################################################################################
-
-
 // Strings
 char ST_DNUL[2]  = "00";
 
@@ -262,11 +256,6 @@ char ST_DRCS[16] = "Dear collegues, ";
 char ST_MFGN[24] = "Mit freundlichen Grüßen ";
 char ST_HAVL[17] = "Hochachtungsvoll ";
 char ST_BTRS[14] = "Best regards, ";
-
-
-################################################################################
-################################################################################
-
 
 
 #endif // nqadnw-common-definitions.h

@@ -169,17 +169,17 @@ void TD_VOID_GREET_NICE (qk_tap_dance_state_t *state, void *user_data) {
     } else if (state->count == 2) {
         send_string(ST_SGDH);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_DSOM);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
@@ -194,20 +194,44 @@ void TD_VOID_GREET_WORK (qk_tap_dance_state_t *state, void *user_data) {
     } else if (state->count == 2) {
         send_string(ST_LKUK);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_DRCS);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_EML (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code(KC_F11);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(ST_EML0);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 3) {
+        send_string(ST_EML1);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 4) {
+        send_string(ST_EML2);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 5) {
+        send_string(ST_EML3);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 6) {
+        send_string(ST_EML4);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 7) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
@@ -219,19 +243,19 @@ void TD_VOID_BYE (qk_tap_dance_state_t *state, void *user_data) {
     } else if (state->count == 2) {
         send_string(ST_MFGN);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_BTRS);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 4) {
         send_string(ST_HAVL);
         SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_DOWN(X_ENTER));
+        SEND_STRING(SS_TAP(X_ENTER));
         SEND_STRING(SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 5) {
@@ -266,30 +290,37 @@ void TD_VOID_GLCK_CD_STNDRD (qk_tap_dance_state_t *state, void *user_data) {
 // Tap dance definitions HAS TO BE AT THE END according to the docs
 #ifdef TAP_DANCE_ENABLE
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT),
-    [CUR] = ACTION_TAP_DANCE_DOUBLE(CUR_EUR, DE_DLR ),
-    [TLD] = ACTION_TAP_DANCE_DOUBLE(DE_TILD, UC_TM  ),
-    [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ),
-    [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ),
+    [QOT] = ACTION_TAP_DANCE_FN(TD_VOID_QUOT_DQOT  ),
+    [CUR] = ACTION_TAP_DANCE_FN(TD_VOID_EURO_DLLR  ),
+    [TLD] = ACTION_TAP_DANCE_FN(TD_VOID_TILD_UC_TM ),
+    [AT]  = ACTION_TAP_DANCE_FN(TD_VOID_ATAT_UC_CPR),
+    [PAR] = ACTION_TAP_DANCE_FN(TD_VOID_PARA_UC_RTM),
 
-    [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN),
-    [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC),
-    [BR3] = ACTION_TAP_DANCE_DOUBLE(DE_LCBR, DE_RCBR),
-    [BR4] = ACTION_TAP_DANCE_DOUBLE(DE_LESS, DE_MORE),
+    [BR1] = ACTION_TAP_DANCE_FN(TD_VOID_LPRN_RPRN),
+    [BR2] = ACTION_TAP_DANCE_FN(TD_VOID_LBRC_RBRC),
+    [BR3] = ACTION_TAP_DANCE_FN(TD_VOID_LCBR_RCBR),
+    [BR4] = ACTION_TAP_DANCE_FN(TD_VOID_LESS_MORE),
 
+    [GUI] = ACTION_TAP_DANCE_FN(TD_VOID_GLCK_CD_STNDRD),
     [SDO] = ACTION_TAP_DANCE_FN(TD_VOID_SUDO_DFNE_INCL),
     [APT] = ACTION_TAP_DANCE_FN(TD_VOID_APT_GET       ),
     [PCM] = ACTION_TAP_DANCE_FN(TD_VOID_PACMAN        ),
-    [GUI] = ACTION_TAP_DANCE_FN(TD_VOID_GLCK_CD_STNDRD),
 /*
-    [SDO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_SUDO,    NULL),
-    [APT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_APT_GET, NULL),
-    [PCM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_PACMAN,  NULL),
-    [GUI] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, TD_VOID_GUI,     NULL)
+    [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT), // won't work acc. to drashna
+    [CUR] = ACTION_TAP_DANCE_DOUBLE(CUR_EUR, DE_DLR ), // won't work acc. to drashna
+    [TLD] = ACTION_TAP_DANCE_DOUBLE(DE_TILD, UC_TM  ), // won't work acc. to drashna
+    [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ), // won't work acc. to drashna
+    [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ), // won't work acc. to drashna
+
+    [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN), // won't work acc. to drashna
+    [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC), // won't work acc. to drashna
+    [BR3] = ACTION_TAP_DANCE_DOUBLE(DE_LCBR, DE_RCBR), // won't work acc. to drashna
+    [BR4] = ACTION_TAP_DANCE_DOUBLE(DE_LESS, DE_MORE), // won't work acc. to drashna
 */
     [GTN] = ACTION_TAP_DANCE_FN(TD_VOID_GREET_NICE),
     [GTW] = ACTION_TAP_DANCE_FN(TD_VOID_GREET_WORK),
-    [BYE] = ACTION_TAP_DANCE_FN(TD_VOID_BYE       )
+    [EML] = ACTION_TAP_DANCE_FN(TD_VOID_EML),
+    [BYE] = ACTION_TAP_DANCE_FN(TD_VOID_BYE)
 };
 #endif // TAP_DANCE_ENABLE
 
