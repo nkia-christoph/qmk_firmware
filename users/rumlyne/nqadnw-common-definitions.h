@@ -107,16 +107,27 @@
 
 // Define non-capitalized UTF shortcuts here
 #ifdef UNICODE_ENABLE
-    // #define PHY_HBR UC(0x0127)
-    // #define PHY_DEG UC(0x00b0)
-    // #define CUR_LIR UC(0x20ba)
-    #define CUR_BIT UC(0x20bf) // ₿ Bitcoin
+    // char UST_HBR[6] = "0x0127"
+    // char UST_DEG[6] = "0x00b0"
+    // char UST_LIR[6] = "0x20ba"
+    char UST_BIT[6] = "0x20bf" // ₿ Bitcoin
+    // char UST_EUR[6] = "0x20ac" // €
+    char UST_BPN[6] = "0x00a3" // £
+    char UST_YEN[6] = "0x00a5" // ¥
+    char UST_TMK[6] = "0x2122" // ™
+    char UST_RTM[6] = "0x00b0" // ®
+    char UST_CPR[6] = "0x00ae" // ©
+
+    // #define PHY_HBR UC(UST_HBR)
+    // #define PHY_DEG UC(UST_DEG)
+    // #define CUR_LIR UC(UST_LIR)
+    #define CUR_BIT UC(UST_BIT) // ₿ Bitcoin
     #define CUR_EUR KC_RALT(KC_E) // UC(0x20ac) // €
-    #define CUR_BPN UC(0x00a3) // £
-    #define CUR_YEN UC(0x00a5) // ¥
-    #define UC_TM   UC(0x2122) // ™
-    #define UC_RTM  UC(0x00b0) // ®
-    #define UC_CPR  UC(0x00ae) // ©
+    #define CUR_BPN UC(UST_BPN) // £
+    #define CUR_YEN UC(UST_YEN) // ¥
+    #define UC_TMK  UC(UST_TMK) // ™
+    #define UC_RTM  UC(UST_RTM) // ®
+    #define UC_CPR  UC(UST_CPR) // ©
 #else
     // #define PHY_HBR KC_NO
     // #define PHY_DEG KC_NO
@@ -125,7 +136,7 @@
     #define CUR_EUR KC_RALT(KC_E)
     #define CUR_BPN KC_NO
     #define CUR_YEN KC_NO
-    #define UC_TM   KC_NO // TODO ab hier
+    #define UC_TMK  KC_NO
     #define UC_RTM  KC_NO
     #define UC_CPR  KC_NO
 #endif
@@ -221,17 +232,17 @@
 
 // String keycodes & dynaminc macro dependancy
 enum custom_keycodes {
-    DYNAMIC_MACRO_RANGE = SAFE_RANGE, // necessary for dynamic macros according to QMK guide
-
-    KS_00,
-
-    KS_SGDH,
-    KS_DSOM,
-    KS_LKUK,
-    KS_DRCS,
-    KS_MFGN,
-    KS_HAVL,
-    KS_BTRS
+    KS_00 = SAFE_RANGE,
+    #ifndef TAP_DANCE_ENABLE
+        KS_SGDH,
+        KS_DSOM,
+        KS_LKUK,
+        KS_DRCS,
+        KS_MFGN,
+        KS_HAVL,
+        KS_BTRS,
+    #endif
+    DYNAMIC_MACRO_RANGE // necessary for dynamic macros according to QMK guide
 };
 
 

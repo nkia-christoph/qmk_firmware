@@ -117,63 +117,90 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 // Tap dance events
-void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+// ' "
+void TD_VOID_QUOT_DQOT (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_QUOT);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_DQOT);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
 
-void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+// € $
+void TD_VOID_EURO_DLLR (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(CUR_EUR);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_DLR);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
 
-void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+// ~ ™
+void TD_VOID_TILD_UC_TM (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_TILD);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        #ifdef UNICODE_ENABLE
+            send_unicode_hex_string(UST_TMK);
+        #endif
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
 
+// @ ©
+void TD_VOID_ATAT_UC_CPR (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code(DE_AT);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        #ifdef UNICODE_ENABLE
+            send_unicode_hex_string(UST_CPR);
+        #endif
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// § ®
 void TD_VOID_PARA_UC_RTM (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_PARA);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        #ifdef UNICODE_ENABLE
+            send_unicode_hex_string(UST_RTM);
+        #endif
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
+
 
 // ()
 void TD_VOID_LPRN_RPRN (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_LPRN);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_RPRN);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
+        tap_code(DE_LPRN);
+        tap_code(DE_RPRN);
+        tap_code(KC_LEFT);
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
@@ -181,12 +208,15 @@ void TD_VOID_LPRN_RPRN (qk_tap_dance_state_t *state, void *user_data) {
 // []
 void TD_VOID_LBRC_RBRC (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_LBRC);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_RBRC);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
+        tap_code(DE_LBRC);
+        tap_code(DE_RBRC);
+        tap_code(KC_LEFT);
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
@@ -194,12 +224,15 @@ void TD_VOID_LBRC_RBRC (qk_tap_dance_state_t *state, void *user_data) {
 // {}
 void TD_VOID_LCBR_RCBR (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_LCBR);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_RCBR);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
+        tap_code(DE_LCBR);
+        tap_code(DE_RCBR);
+        tap_code(KC_LEFT);
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
@@ -207,12 +240,15 @@ void TD_VOID_LCBR_RCBR (qk_tap_dance_state_t *state, void *user_data) {
 // <>
 void TD_VOID_LESS_MORE (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(XXXXXXX);
+        tap_code(DE_LESS);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
-        send_string(XXXXXXX);
+        tap_code(DE_MORE);
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 3) {
+        tap_code(DE_LESS);
+        tap_code(DE_MORE);
+        tap_code(KC_LEFT);
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
@@ -397,9 +433,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 /*
     [QOT] = ACTION_TAP_DANCE_DOUBLE(DE_QUOT, DE_DQOT), // won't work acc. to drashna
     [CUR] = ACTION_TAP_DANCE_DOUBLE(CUR_EUR, DE_DLR ), // won't work acc. to drashna
-    [TLD] = ACTION_TAP_DANCE_DOUBLE(DE_TILD, UC_TM  ), // won't work acc. to drashna
-    [AT]  = ACTION_TAP_DANCE_DOUBLE(DE_AT  , UC_CPR ), // won't work acc. to drashna
-    [PAR] = ACTION_TAP_DANCE_DOUBLE(DE_PARA, UC_RTM ), // won't work acc. to drashna
 
     [BR1] = ACTION_TAP_DANCE_DOUBLE(DE_LPRN, DE_RPRN), // won't work acc. to drashna
     [BR2] = ACTION_TAP_DANCE_DOUBLE(DE_LBRC, DE_RBRC), // won't work acc. to drashna
