@@ -8,10 +8,11 @@
 //#define NO_ACTION_MACRO
 
 #ifndef NO_DEBUG
-#define NO_DEBUG
+  #define NO_DEBUG
 #endif // !NO_DEBUG
+
 #if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
-#define NO_PRINT
+  #define NO_PRINT
 #endif // !NO_PRINT
 
 #define PERMISSIVE_HOLD
@@ -23,8 +24,8 @@
 
 // RGB Settings
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SLEEP  // make sure backlight is off when PC is asleep
-#include "rgblight_list.h"  // qmk-firmware/quantum/rgblight_list.h
+  #define RGBLIGHT_SLEEP  // make sure backlight is off when PC is asleep
+  #include "rgblight_list.h"  // qmk-firmware/quantum/rgblight_list.h
 #endif  // RGBLIGHT_ENABLE
 
 

@@ -5,9 +5,9 @@
 #define NQADNW_COMMON_DEFINITIONS_H
 
 
-/*
- * This file holds some common NQADNW definitions.
- */
+/**
+  * This file holds some common NQADNW definitions.
+  */
 
 
 // Error prevention

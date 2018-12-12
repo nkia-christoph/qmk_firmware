@@ -5,9 +5,9 @@
 #define NQADNW_COMMON_FUNCTIONS_H
 
 
-/*
- * This file holds some common NQADNW functions.
- */
+/**
+  * This file holds some common NQADNW functions.
+  */
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -117,6 +117,109 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 // Tap dance events
+void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_XXXXX (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+void TD_VOID_PARA_UC_RTM (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// ()
+void TD_VOID_LPRN_RPRN (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// []
+void TD_VOID_LBRC_RBRC (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// {}
+void TD_VOID_LCBR_RCBR (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// <>
+void TD_VOID_LESS_MORE (qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count == 2) {
+        send_string(XXXXXXX);
+        break; // reset_tap_dance (state); // TODO CHECK
+    } else if (state->count >= 3) {
+        break; // reset_tap_dance (state); // TODO CHECK
+    }
+}
+
+// sudo
+// #define
+// #include
 void TD_VOID_SUDO_DFNE_INCL (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         send_string(ST_SUDO);
@@ -132,6 +235,9 @@ void TD_VOID_SUDO_DFNE_INCL (qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+// apt-get install
+// apt-get update
+// apt-get upgrade
 void TD_VOID_APT_GET (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         send_string(ST_APIS);
@@ -147,6 +253,9 @@ void TD_VOID_APT_GET (qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+// pacman -S
+// pacman -Syu
+// pacman -Syyuu
 void TD_VOID_PACMAN (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         send_string(ST_PMNS);
@@ -168,19 +277,11 @@ void TD_VOID_GREET_NICE (qk_tap_dance_state_t *state, void *user_data) {
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
         send_string(ST_SGDH);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_DSOM);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
         break; // reset_tap_dance (state); // TODO CHECK
@@ -193,19 +294,11 @@ void TD_VOID_GREET_WORK (qk_tap_dance_state_t *state, void *user_data) {
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
         send_string(ST_LKUK);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_DRCS);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 4) {
         break; // reset_tap_dance (state); // TODO CHECK
@@ -242,27 +335,23 @@ void TD_VOID_BYE (qk_tap_dance_state_t *state, void *user_data) {
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 2) {
         send_string(ST_MFGN);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 3) {
         send_string(ST_BTRS);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count == 4) {
         send_string(ST_HAVL);
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-        SEND_STRING(SS_TAP(X_ENTER));
-        SEND_STRING(SS_UP(X_LSHIFT));
+        SEND_STRING(SS_DOWN(X_LSHIFT)SS_TAP(X_ENTER)SS_UP(X_LSHIFT));
         break; // reset_tap_dance (state); // TODO CHECK
     } else if (state->count >= 5) {
         break; // reset_tap_dance (state); // TODO CHECK
     }
 }
 
+// GUI lock
+// switch default layer
 void TD_VOID_GLCK_CD_STNDRD (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code (LGUI(KC_L));

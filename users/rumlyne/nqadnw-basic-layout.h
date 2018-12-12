@@ -10,6 +10,8 @@
 #include "nqadnw-common-functions.h"
 #include QMK_KEYBOARD_H
 
+#include "secrets.h"
+
 #ifndef NQADNW_BASIC_LAYOUT_H
 #define NQADNW_BASIC_LAYOUT_H
 
