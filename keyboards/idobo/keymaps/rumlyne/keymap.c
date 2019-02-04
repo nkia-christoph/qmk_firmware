@@ -310,7 +310,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  */
 
-<<<<<<< HEAD
 void matrix_init_keymap(void) {
     set_unicode_input_mode(UC_WIN);
 }
@@ -319,25 +318,4 @@ void matrix_init_keymap(void) {
 void matrix_scan_keymap(void) {
     matrix_scan_user();
 }
-=======
-__attribute__ ((weak))
-void matrix_init_kb(void) {
-    set_unicode_input_mode(UC_WIN);
-    matrix_init_user();
-}
-
-/*
-__attribute__ ((weak))
-void matrix_scan_kb(void) {
-    matrix_scan_user();
-}
-
-__attribute__ ((weak))
-void matrix_init_user(void) {
-}
-
-__attribute__ ((weak))
-void matrix_scan_user(void) {
-}
->>>>>>> a33ca537b40d8d361465b9c3c0b05f30ada44c8e
 */
