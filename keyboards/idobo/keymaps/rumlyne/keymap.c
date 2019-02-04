@@ -6,7 +6,8 @@
 #include "nqadnw_basic_layout.h"
 #include "keymap_german.h"
 
-//extern userspace_config_t userspace_config; //? drashna
+//extern userspace_config_t userspace_config; // do I need that?
+extern keymap_config_t keymap_config;
 
 //#define LAYOUT_ortho_5x15_wrapper(...) LAYOUT_ortho_5x15(__VA_ARGS__) // defined in userspace
 
@@ -309,10 +310,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  */
 
+__attribute__ ((weak))
+void matrix_init_kb(void) {
+    set_unicode_input_mode(UC_WIN);
+    matrix_init_user();
+}
 
-// Set unicode mode to Windows on startup.
-/* y tho?!
+/*
+__attribute__ ((weak))
+void matrix_scan_kb(void) {
+    matrix_scan_user();
+}
+
+__attribute__ ((weak))
 void matrix_init_user(void) {
-  set_unicode_input_mode(UC_WIN);
-};
+}
+
+__attribute__ ((weak))
+void matrix_scan_user(void) {
+}
 */

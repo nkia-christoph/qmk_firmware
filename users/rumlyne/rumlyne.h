@@ -1,14 +1,11 @@
 #pragma once
 
-#ifndef RUMLYNE_H
-#define RUMLYNE_H
-
 
 #include "keymap_german.h"
 #include <sendstring_german.h>
 #include "quantum.h"
-//#include "action.h"
-//#include "action_layer.h"
+#include "action.h"
+//#include "version.h"
 
 
 #ifdef TAP_DANCE_ENABLE
@@ -68,10 +65,8 @@ enum userspace_layers {
 
 // Error prevention
 #define ______   KC_TRNS
-#define _______  KC_TRNS
 #define ________ KC_TRNS
 #define XXXXXX   KC_NO
-#define XXXXXXX  KC_NO
 #define XXXXXXXX KC_NO
 
 // NQADNW specific layer MODs
@@ -358,6 +353,3 @@ static const char * const ST_DEGR[31] = {
 
 
 #endif // UNICODE_ENABLE
-
-
-#endif // rumlyne.h

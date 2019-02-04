@@ -1,10 +1,7 @@
 #include "quantum.h"
-#ifdef TAP_DANCE_ENABLE
-  #include "process_keycode/process_tap_dance.h"
-#endif // TAP_DANCE_ENABLE
-//#include "action.h"
+#include "action.h"
 //#include "action_layer.h"
-#include "rumlyne.h"
+//#include "rumlyne.h"
 #include "nqadnw_basic_layout.h"
 
 
@@ -47,10 +44,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
 */
 
-//            #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
-//                case KS_SUDO:
-//                    send_string(ST_SUDO);
-//                    return false;
+            #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
+                case KS_SUDO:
+                    send_string(ST_SUDO);
+                    return false;
     /*
                 case KS_DFN:
                     send_string(ST_DFN);
@@ -59,9 +56,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     send_string(ST_INCL);
                     return false;
     */
-//                case KS_APIS:
-//                    send_string(ST_APIS);
-//                    return false;
+                case KS_APIS:
+                    send_string(ST_APIS);
+                    return false;
     /*
                 case KS_APUD:
                     send_string(ST_APUD);
@@ -70,9 +67,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     send_string(ST_APUG);
                     return false;
     */
-//                case KS_PMNS:
-//                    send_string(ST_PMNS);
-//                    return false;
+                case KS_PMNS:
+                    send_string(ST_PMNS);
+                    return false;
     /*
                 case KS_PSYU:
                     send_string(ST_PSYU);
@@ -81,7 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     send_string(ST_PSYY);
                     return false;
     */
-//            #endif // TAP_DANCE_ENABLE
+            #endif // TAP_DANCE_ENABLE
 
         }
     }
@@ -630,7 +627,7 @@ void td_uni_switch (qk_tap_dance_state_t *state, void *user_data) {
             clear_mods();
             tap_code(KC_F9);
             break;
-//#ifdef UNICODE_ENABLE
+#ifdef UNICODE_ENABLE
         case 2:
             set_unicode_input_mode(UC_LNX);
             break;
@@ -640,7 +637,7 @@ void td_uni_switch (qk_tap_dance_state_t *state, void *user_data) {
         case 4:
             set_unicode_input_mode(UC_WINC);
             break;
-//#endif // UNICODE_ENABLE
+#endif // UNICODE_ENABLE
         default:
             break;
     }
