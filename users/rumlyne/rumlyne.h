@@ -1,14 +1,11 @@
 #pragma once
 
-#ifndef RUMLYNE_H
-#define RUMLYNE_H
-
 
 #include "keymap_german.h"
 #include <sendstring_german.h>
 #include "quantum.h"
-//#include "action.h"
-//#include "action_layer.h"
+#include "action.h"
+//#include "version.h"
 
 
 #ifdef TAP_DANCE_ENABLE
@@ -68,10 +65,8 @@ enum userspace_layers {
 
 // Error prevention
 #define ______   KC_TRNS
-#define _______  KC_TRNS
 #define ________ KC_TRNS
 #define XXXXXX   KC_NO
-#define XXXXXXX  KC_NO
 #define XXXXXXXX KC_NO
 
 // NQADNW specific layer MODs
@@ -165,11 +160,11 @@ enum userspace_layers {
 #define RETURN KC_RETURN
 #define CANCEL KC_CANCEL
 #define KC_CLA KC_CLEAR_AGAIN
-#define DM_RC1 DYN_REC_START1
-#define DM_RC2 DYN_REC_START2
-#define DM_PB1 DYN_MACRO_PLAY1
-#define DM_PB2 DYN_MACRO_PLAY2
-#define DM_STP DYN_REC_STOP
+#define DM_RC1 KC_NO//DYN_REC_START1
+#define DM_RC2 KC_NO//DYN_REC_START2
+#define DM_PB1 KC_NO//DYN_MACRO_PLAY1
+#define DM_PB2 KC_NO//DYN_MACRO_PLAY2
+#define DM_STP KC_NO//DYN_REC_STOP
 
 
 // Define non-capitalized UTF shortcuts here
@@ -240,7 +235,7 @@ enum userspace_layers {
   #define TD_PCMN KS_PMNS
   #define TD_GUI  GUI_LCK
 
-  #define TD_F4   KC_F9
+  #define TD_F9   KC_F9
   #define TD_F4   KC_F4
   #define TD_F3   KC_F3
   #define TD_F2   KC_F2
@@ -255,12 +250,15 @@ enum userspace_layers {
   #define BR_ARRJ DE_RBRC
   #define BR_ARRK DE_RCBR
   #define BR_ARRL DE_MORE
+  enum custom_keycodes {
+      NEW_SAFE_RANGE = SAFE_RANGE
+  };
 #endif // TAP_DANCE_ENABLE
 
 
 // String keycodes & dynaminc macro dependancy
 enum more_custom_keycodes {
-  DYNAMIC_MACRO_RANGE = NEW_SAFE_RANGE, // necessary for dynamic macros according to QMK guide
+  KS_00 = NEW_SAFE_RANGE, // necessary for dynamic macros according to QMK guide
 
   #ifndef TAP_DANCE_ENABLE
     KS_SGDH,
@@ -282,7 +280,7 @@ enum more_custom_keycodes {
     // KS_PSYY // pacman -Syyuu
   #endif
 
-  KS_00,
+  /*DYNAMIC_MACRO_RANGE,*/
   NEW_NEW_SAFE_RANGE
 };
 
@@ -343,7 +341,7 @@ static const char * const ST_DEGR[31] = {
     UST_CPR  // ©
   };
 
-  const uint16_t PROGMEM unicode_map[] = { //16 genug?
+  const uint16_t PROGMEM unicode_map[] = { //16 enough? Probably yes
     //[UST_HBR] = 0x0127,
     //[UST_DEG] = 0x00B0,
     //[UST_LIR] = 0x20BA,
@@ -358,6 +356,3 @@ static const char * const ST_DEGR[31] = {
 
 
 #endif // UNICODE_ENABLE
-
-
-#endif // rumlyne.h

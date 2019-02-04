@@ -1,8 +1,10 @@
 #pragma once
 
+#include "rumlyne.h"
+
 
 #if (!defined(LAYOUT) && defined(KEYMAP))
-#define LAYOUT KEYMAP
+  #define LAYOUT KEYMAP
 #endif
 
 #define KEYMAP_wrapper(...) LAYOUT(__VA_ARGS__)
