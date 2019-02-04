@@ -1,6 +1,11 @@
 #include "quantum.h"
+<<<<<<< HEAD
 //#include "dynamic_macro.h"`
 #include "action.h"
+=======
+#include "action.h"
+//#include "action_layer.h"
+>>>>>>> a33ca537b40d8d361465b9c3c0b05f30ada44c8e
 //#include "rumlyne.h"
 #include "nqadnw_basic_layout.h"
 
