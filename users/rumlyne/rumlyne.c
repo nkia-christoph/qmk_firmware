@@ -26,65 +26,65 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
         case KS_00:
             if (record->event.pressed) {
-                send_string(ST_DNUL);
+                send_string_with_delay(ST_DNUL);
                 return false;
 
 /* disabled because not directly mapped to any keymap
             case KS_SGDH:
-                send_string(ST_SGDH);
+                send_string_with_delay(ST_SGDH);
                 return false;
             case KS_DSOM:
-                send_string(ST_DSOM);
+                send_string_with_delay(ST_DSOM);
                 return false;
             case KS_LKUK:
-                send_string(ST_LKUK);
+                send_string_with_delay(ST_LKUK);
                 return false;
             case KS_DRCS:
-                send_string(ST_DRCS);
+                send_string_with_delay(ST_DRCS);
                 return false;
             case KS_MFGN:
-                send_string(ST_MFG1);
+                send_string_with_delay(ST_MFG1);
                 return false;
             case KS_HAVL:
-                send_string(ST_HAVL);
+                send_string_with_delay(ST_HAVL);
                 return false;
             case KS_BTRS:
-                send_string(ST_BTRS);
+                send_string_with_delay(ST_BTRS);
                 return false;
 */
 
             #ifndef TAP_DANCE_ENABLE // If TD is not enabled, TD_x = KS_x
                 case KS_SUDO:
-                    send_string(ST_SUDO);
+                    send_string_with_delay(ST_SUDO);
                     return false;
     /*
                 case KS_DFN:
-                    send_string(ST_DFN);
+                    send_string_with_delay(ST_DFN);
                     return false;
                 case KS_INCL:
-                    send_string(ST_INCL);
+                    send_string_with_delay(ST_INCL);
                     return false;
     */
                 case KS_APIS:
-                    send_string(ST_APIS);
+                    send_string_with_delay(ST_APIS);
                     return false;
     /*
                 case KS_APUD:
-                    send_string(ST_APUD);
+                    send_string_with_delay(ST_APUD);
                     return false;
                 case KS_APUG:
-                    send_string(ST_APUG);
+                    send_string_with_delay(ST_APUG);
                     return false;
     */
                 case KS_PMNS:
-                    send_string(ST_PMNS);
+                    send_string_with_delay(ST_PMNS);
                     return false;
     /*
                 case KS_PSYU:
-                    send_string(ST_PSYU);
+                    send_string_with_delay(ST_PSYU);
                     return false;
                 case KS_PSYY:
-                    send_string(ST_PSYY);
+                    send_string_with_delay(ST_PSYY);
                     return false;
     */
             #endif // TAP_DANCE_ENABLE
@@ -406,11 +406,11 @@ void td_less_more (qk_tap_dance_state_t *state, void *user_data) {
 // #include
 void td_sudo_dfne_incl (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(ST_SUDO);
+        send_string_with_delay(ST_SUDO);
     } else if (state->count == 2) {
-        send_string(ST_DFNE);
+        send_string_with_delay(ST_DFNE);
     } else if (state->count == 3) {
-        send_string(ST_INCL);
+        send_string_with_delay(ST_INCL);
     } else if (state->count >= 4) {
         reset_tap_dance (state);
     }
@@ -422,11 +422,11 @@ void td_sudo_dfne_incl (qk_tap_dance_state_t *state, void *user_data) {
 // apt-get upgrade
 void td_apt_get (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(ST_APIS);
+        send_string_with_delay(ST_APIS);
     } else if (state->count == 2) {
-        send_string(ST_APUD);
+        send_string_with_delay(ST_APUD);
     } else if (state->count == 3) {
-        send_string(ST_APUG);
+        send_string_with_delay(ST_APUG);
     } else if (state->count >= 4) {
         reset_tap_dance(state);
     }
@@ -438,11 +438,11 @@ void td_apt_get (qk_tap_dance_state_t *state, void *user_data) {
 // pacman -Syyuu
 void td_pacman (qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        send_string(ST_PMNS);
+        send_string_with_delay(ST_PMNS);
     } else if (state->count == 2) {
-        send_string(ST_PSYU);
+        send_string_with_delay(ST_PSYU);
     } else if (state->count == 3) {
-        send_string(ST_PSYY);
+        send_string_with_delay(ST_PSYY);
     } else if (state->count >= 4) {
         reset_tap_dance(state);
     }
@@ -455,7 +455,7 @@ void td_greet_nice (qk_tap_dance_state_t *state, void *user_data) {
         tap_code(KC_F3);
     } else if (state->count == 2) {
         clear_mods();
-        send_string(ST_SGDH);
+        send_string_with_delay(ST_SGDH);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         tap_code(KC_ENT);
@@ -463,7 +463,7 @@ void td_greet_nice (qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LSFT);
     } else if (state->count == 3) {
         clear_mods();
-        send_string(ST_DSOM);
+        send_string_with_delay(ST_DSOM);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         tap_code(KC_ENT);
@@ -481,7 +481,7 @@ void td_greet_work (qk_tap_dance_state_t *state, void *user_data) {
         tap_code(KC_F2);
     } else if (state->count == 2) {
         clear_mods();
-        send_string(ST_LKUK);
+        send_string_with_delay(ST_LKUK);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         tap_code(KC_ENT);
@@ -489,7 +489,7 @@ void td_greet_work (qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LSFT);
     } else if (state->count == 3) {
         clear_mods();
-        send_string(ST_DRCS);
+        send_string_with_delay(ST_DRCS);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         tap_code(KC_ENT);
@@ -508,53 +508,53 @@ void td_email (qk_tap_dance_state_t *state, void *user_data) {
     } else if (state->count == 2) {
         clear_mods();
 
-        send_string(ST_EML_UNAME1);
+        send_string_with_delay(ST_EML_UNAME1);
 
         register_code(KC_RALT);
         tap_code(KC_Q);
         unregister_code(KC_RALT);
 
-        send_string(ST_EML_DOMAIN2);
+        send_string_with_delay(ST_EML_DOMAIN2);
     } else if (state->count == 3) {
         clear_mods();
 
-        send_string(ST_EML_UNAME2);
+        send_string_with_delay(ST_EML_UNAME2);
 
         register_code(KC_RALT);
         tap_code(KC_Q);
         unregister_code(KC_RALT);
 
-        send_string(ST_EML_DOMAIN3);
+        send_string_with_delay(ST_EML_DOMAIN3);
     } else if (state->count == 4) {
         clear_mods();
 
-        send_string(ST_EML_UNAME3);
+        send_string_with_delay(ST_EML_UNAME3);
 
         register_code(KC_RALT);
         tap_code(KC_Q);
         unregister_code(KC_RALT);
 
-        send_string(ST_EML_DOMAIN2);
+        send_string_with_delay(ST_EML_DOMAIN2);
     } else if (state->count == 5) {
         clear_mods();
 
-        send_string(ST_EML_UNAME2);
+        send_string_with_delay(ST_EML_UNAME2);
 
         register_code(KC_RALT);
         tap_code(KC_Q);
         unregister_code(KC_RALT);
 
-        send_string(ST_EML_DOMAIN1);
+        send_string_with_delay(ST_EML_DOMAIN1);
     } else if (state->count == 6) {
         clear_mods();
 
-        send_string(ST_EML_UNAME2);
+        send_string_with_delay(ST_EML_UNAME2);
 
         register_code(KC_RALT);
         tap_code(KC_Q);
         unregister_code(KC_RALT);
 
-        send_string(ST_EML_DOMAIN4);
+        send_string_with_delay(ST_EML_DOMAIN4);
     } else if (state->count >= 7) {
         reset_tap_dance(state);
     }
@@ -568,20 +568,20 @@ void td_bye (qk_tap_dance_state_t *state, void *user_data) {
     } else if (state->count == 2) {
         clear_mods();
 
-        send_string(ST_MFG1);
+        send_string_with_delay(ST_MFG1);
         tap_code(KC_MINS/*DE_SS*/);
-        send_string(ST_MFG2);
+        send_string_with_delay(ST_MFG2);
 
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         unregister_code(KC_LSFT);
     } else if (state->count == 3) {
-        send_string(ST_BTRS);
+        send_string_with_delay(ST_BTRS);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         unregister_code(KC_LSFT);
     } else if (state->count == 4) {
-        send_string(ST_HAVL);
+        send_string_with_delay(ST_HAVL);
         register_code(KC_LSFT);
         tap_code(KC_ENT);
         unregister_code(KC_LSFT);
