@@ -285,37 +285,37 @@ enum more_custom_keycodes {
 };
 
 
-char ST_EML_UNAME1[10] = "xxxxxxxxxx";
-char ST_EML_UNAME2[17] = "xxxxxxxxxxxxxxxxx";
-char ST_EML_UNAME3[7]  = "xxxxxxx";
+static const char ST_EML_UNAME1[10] = "xxxxxxxxxx";
+static const char ST_EML_UNAME2[17] = "xxxxxxxxxxxxxxxxx";
+static const char ST_EML_UNAME3[7]  = "xxxxxxx";
 
-char ST_EML_DOMAIN1[9] = "xxxxxxxxx";
-char ST_EML_DOMAIN2[6] = "xxxxxx";
-char ST_EML_DOMAIN3[6] = "xxxxxx";
-char ST_EML_DOMAIN4[6] = "xxxxxx";
+static const char ST_EML_DOMAIN1[9] = "xxxxxxxxx";
+static const char ST_EML_DOMAIN2[6] = "xxxxxx";
+static const char ST_EML_DOMAIN3[6] = "xxxxxx";
+static const char ST_EML_DOMAIN4[6] = "xxxxxx";
 
 
-char ST_DNUL[2]  = "00";
+static const char ST_DNUL[2]  = "00";
 
-char ST_SUDO[5]  = "sudo ";
-char ST_DFNE[8]  = "#define ";
-char ST_INCL[9]  = "#include ";
+static const char ST_SUDO[5]  = "sudo ";
+static const char ST_DFNE[8]  = "#define ";
+static const char ST_INCL[9]  = "#include ";
 
-char ST_APIS[16] = "apt-get install ";
-char ST_APUD[15] = "apt-get update ";
-char ST_APUG[16] = "apt-get upgrade ";
-char ST_PMNS[10] = "pacman -S ";
-char ST_PSYU[12] = "pacman -Syu ";
-char ST_PSYY[14] = "pacman -Syyuu ";
+static const char ST_APIS[16] = "apt-get install ";
+static const char ST_APUD[15] = "apt-get update ";
+static const char ST_APUG[16] = "apt-get upgrade ";
+static const char ST_PMNS[10] = "pacman -S ";
+static const char ST_PSYU[12] = "pacman -Syu ";
+static const char ST_PSYY[14] = "pacman -Syyuu ";
 
-static const char ST_SGDH[31] = {"Sehr geehrte Damen und Herren, "};
-static const char ST_LKUK[32] = {"Liebe Kolleginnen und Kollegen, "};
-static const char ST_MFG1[20] = {"Mit freundlichen Gr["}; // siehe quantum/keymap_extras/sendstring_german
-char ST_MFG2[2] = "n ";
-char ST_HAVL[17] = "Hochachtungsvoll ";
-char ST_DSOM[19] = "Dear sir or madam, ";
-char ST_DRCS[16] = "Dear collegues, ";
-char ST_BTRS[14] = "Best regards, ";
+static const char ST_SGDH[31] = "Sehr geehrte Damen und Herren, ";
+static const char ST_LKUK[32] = "Liebe Kolleginnen und Kollegen, ";
+static const char ST_MFG1[20] = "Mit freundlichen Gr["; // siehe quantum/keymap_extras/sendstring_german
+static const char ST_MFG2[2] = "n ";
+static const char ST_HAVL[17] = "Hochachtungsvoll ";
+static const char ST_DSOM[19] = "Dear sir or madam, ";
+static const char ST_DRCS[16] = "Dear collegues, ";
+static const char ST_BTRS[14] = "Best regards, ";
 
 /*
 static const char * const ST_DEGR[31] = {
@@ -341,7 +341,7 @@ static const char * const ST_DEGR[31] = {
     UST_CPR  // ©
   };
 
-  const uint16_t PROGMEM unicode_map[] = { //16 enough? Probably yes
+  static const uint16_t PROGMEM unicode_map[] = { //16 enough? Probably yes
     //[UST_HBR] = 0x0127,
     //[UST_DEG] = 0x00B0,
     //[UST_LIR] = 0x20BA,
