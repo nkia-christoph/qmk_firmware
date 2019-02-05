@@ -5,7 +5,6 @@
 #include <sendstring_german.h>
 #include "quantum.h"
 #include "action.h"
-//#include "version.h"
 
 
 #ifdef TAP_DANCE_ENABLE
