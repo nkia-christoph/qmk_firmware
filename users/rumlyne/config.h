@@ -18,8 +18,8 @@
 
 #define PERMISSIVE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_TERM 240  // how long before a tap becomes a hold // default = 200
-#define TAPPING_TOGGLE 2
+#define TAPPING_TERM 160  // how long before a tap becomes a hold // default = 200
+//#define TAPPING_TOGGLE 2
 #define TAPPING_FORCE_HOLD  // makes it possible to use a dual role key as modifier shortly after having been tapped
 #define QMK_KEYS_PER_SCAN 4  // default = 1
 
