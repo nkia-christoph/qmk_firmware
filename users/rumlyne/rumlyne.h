@@ -2,7 +2,7 @@
 
 
 #include "keymap_german.h"
-#include <sendstring_german.h>
+//#include <sendstring_german.h>
 #include "quantum.h"
 #include "action.h"
 
@@ -205,12 +205,13 @@ enum userspace_layers {
   #define TD_PCMN TD(PCM)
   #define TD_GUI  TD(GUI)
 
-  #define TD_F9   TD(UCS)
-  #define TD_F4   TD(AF4)
-  #define TD_F3   TD(GTN)
   #define TD_F2   TD(GTW)
-  #define TD_F11  TD(EML)
+  #define TD_F3   TD(GTN)
+  #define TD_F4   TD(AF4)
+
+  #define TD_F9   TD(UCS)
   #define TD_F10  TD(BYE)
+  #define TD_F11  TD(EML)
 
   #define TD_BR1  TD(BR1)
   #define TD_BR2  TD(BR2)
@@ -234,12 +235,13 @@ enum userspace_layers {
   #define TD_PCMN KS_PMNS
   #define TD_GUI  GUI_LCK
 
-  #define TD_F9   KC_F9
-  #define TD_F4   KC_F4
-  #define TD_F3   KC_F3
   #define TD_F2   KC_F2
-  #define TD_F11  KC_F11
+  #define TD_F3   KC_F3
+  #define TD_F4   KC_F4
+
+  #define TD_F9   KC_F9
   #define TD_F10  KC_F10
+  #define TD_F11  KC_F11
 
   #define TD_BR1  DE_LPRN
   #define TD_BR2  DE_LBRC
@@ -287,11 +289,26 @@ enum more_custom_keycodes {
 static const char ST_EML_UNAME1[10] = "xxxxxxxxxx";
 static const char ST_EML_UNAME2[17] = "xxxxxxxxxxxxxxxxx";
 static const char ST_EML_UNAME3[7]  = "xxxxxxx";
+/*
+static const char ST_EML_UNAME[3] = {
+    "xxxxxxxxxx",
+    "xxxxxxxxxxxxxxxxx",
+    "xxxxxxx"
+};
+*/
 
 static const char ST_EML_DOMAIN1[9] = "xxxxxxxxx";
 static const char ST_EML_DOMAIN2[6] = "xxxxxx";
 static const char ST_EML_DOMAIN3[6] = "xxxxxx";
 static const char ST_EML_DOMAIN4[6] = "xxxxxx";
+/*
+static const char ST_EML_DOMAIN[4] = {
+    "xxxxxxxxx",
+    "xxxxxx",
+    "xxxxxx",
+    "xxxxxx"
+};
+*/
 
 
 static const char ST_DNUL[2]  = "00";
@@ -309,18 +326,44 @@ static const char ST_PSYY[14] = "pacman -Syyuu ";
 
 static const char ST_SGDH[31] = "Sehr geehrte Damen und Herren, ";
 static const char ST_LKUK[32] = "Liebe Kolleginnen und Kollegen, ";
-static const char ST_MFG1[20] = "Mit freundlichen Gr["; // siehe quantum/keymap_extras/sendstring_german
-static const char ST_MFG2[2] = "n ";
+static const char ST_MFG1[20] = "Mit freundlichen Gr["; // see quantum/keymap_extras/sendstring_german
+static const char ST_MFG2[3] = "en ";
 static const char ST_HAVL[17] = "Hochachtungsvoll ";
+
 static const char ST_DSOM[19] = "Dear sir or madam, ";
 static const char ST_DRCS[16] = "Dear collegues, ";
 static const char ST_BTRS[14] = "Best regards, ";
 
 /*
-static const char * const ST_DEGR[31] = {
+static const char * const ST_DEGR[] = {
     "Sehr geehrte Damen und Herren, ",
     "Liebe Kolleginnen und Kollegen, ",
     "Mit freundlichen Grüßen "
+};
+
+static const char macros[] = {
+    [ST_DNUL] = "00",
+
+    [ST_SUDO] = "sudo ",
+    [ST_DFNE] = "#define ",
+    [ST_INCL] = "#include ",
+
+    [ST_APIS] = "apt-get install",
+    [ST_APUD] = "apt-get update",
+    [ST_APUG] = "apt-get upgrade",
+    [ST_PMNS] = "pacman -S ",
+    [ST_PSYU] = "pacman -Syu ",
+    [ST_PSYY] = "pacman -Syyuu ",
+
+    [ST_SGDH] = "Sehr geehrte Damen und Herren, ",
+    [ST_LKUK] = "Liebe Kolleginnen und Kollegen, ",
+    [ST_MFG1] = "Mit freundlichen Gr[", // see quantum/keymap_extras/sendstring_german
+    [ST_MFG2] = "en ",
+    [ST_HAVL] = "Hochachtungsvoll ",
+
+    [ST_DSOM] = "Dear sir or madam, ",
+    [ST_DRCS] = "Dear collegues, ",
+    [ST_BTRS] = "Best regards, "
 };
 */
 

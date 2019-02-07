@@ -48,7 +48,7 @@ SRC += rumlyne.c
 #		TMK_COMMON_DEFS += -DNO_DEBUG
 #endif
 
-EXTRAFLAGS += -flto LATER
+# EXTRAFLAGS += -flto LATER   # Produces error!!!
 
 BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE = yes       # Mouse keys(+4700)

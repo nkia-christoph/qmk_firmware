@@ -1,15 +1,12 @@
 #include "idobo.h"
 #include QMK_KEYBOARD_H
-//#include "quantum.h"
 
 //#include "rumlyne.h"
 #include "nqadnw_basic_layout.h"
 #include "keymap_german.h"
 
 //extern userspace_config_t userspace_config; // do I need that?
-extern keymap_config_t keymap_config;
-
-//#define LAYOUT_ortho_5x15_wrapper(...) LAYOUT_ortho_5x15(__VA_ARGS__) // defined in userspace
+//extern keymap_config_t keymap_config; // do I need that?
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
